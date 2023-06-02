@@ -1,0 +1,107 @@
+title: MOVEit 0Day HTTP Header Detection
+status: Experimental 
+description: Detects HTTP Header that used on MOVEit 0Day.
+author: Bertuğ Erkaya @bertugerkaya
+references:
+   - https://www.trustedsec.com/blog/critical-vulnerability-in-progress-moveit-transfer-technical-analysis-and-recommendations/
+   - https://www.huntress.com/blog/moveit-transfer-critical-vulnerability-rapid-response
+logsource:
+   product:
+    - waf
+    - IIS
+detection:
+   selection:
+      - http_header|contains:
+         -'X-siLock-Comment'
+         -'X-siLock-Step1'
+         -'X-siLock-Step2'
+         -'X-siLock-Step3'
+   condition: or
+falsepositives:
+   - Unknown
+level: high
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+title: MOVEit 0Day HTTP GET Request Detection
+status: Experimental 
+description: Detects MOVEit 0Day attack on GET request.
+author: Bertuğ Erkaya @bertugerkaya
+references:
+   - https://www.trustedsec.com/blog/critical-vulnerability-in-progress-moveit-transfer-technical-analysis-and-recommendations/
+   - https://www.huntress.com/blog/moveit-transfer-critical-vulnerability-rapid-response
+logsource:
+   product: 
+      - waf
+      - IIS
+detection:
+   selection_1:
+      - http_url|contains:
+         -'human2.aspx'
+   selection_2:
+      - request_type:
+         -'GET'
+   condition: selection_1 and selection_2
+falsepositives:
+   - Unknown
+level: high
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+title: MOVEit 0Day HTTP POST Request Detection
+status: Experimental 
+description: Detects MOVEit 0Day attack on GET request.
+author: Bertuğ Erkaya @bertugerkaya
+references:
+   - https://www.trustedsec.com/blog/critical-vulnerability-in-progress-moveit-transfer-technical-analysis-and-recommendations/
+   - https://www.huntress.com/blog/moveit-transfer-critical-vulnerability-rapid-response
+logsource:
+   product: 
+      - waf
+      - IIS
+detection:
+   selection_1:
+      - http_url|contains:
+         -'human2.aspx'
+   selection_2:
+      - request_type:
+         -'GET'
+   condition: selection_1 and selection_2
+falsepositives:
+   - Unknown
+level: high
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+IoCs
+138.197.152.201
+206.189.57.162
+146.190.41.214
+165.22.60.26
+147.182.154.58
+167.71.229.198
+170.64.134.89
+164.92.117.229
+139.59.37.187
+170.64.134.120
+167.71.133.68
+64.227.146.243
+167.172.89.248
+165.227.147.215
+138.68.153.47
+138.197.24.249
+138.68.143.68
+142.93.115.5
+159.203.44.105
+165.232.73.237
+167.99.13.19
+178.62.216.118
+146.190.119.114
+146.190.119.189
+137.184.105.192
+161.35.190.246
+206.189.120.50
+146.190.166.168
+104.248.229.49
+170.64.166.144
+64.227.41.39
