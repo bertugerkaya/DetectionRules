@@ -62,10 +62,10 @@ logsource:
 detection:
    selection_1:
       - http_url|contains:
-         -'human2.aspx'
+         -'moveitisapi.dll'
    selection_2:
       - request_type:
-         -'GET'
+         -'POST'
    condition: selection_1 and selection_2
 falsepositives:
    - Unknown
