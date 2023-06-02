@@ -50,7 +50,7 @@ level: high
 
 title: MOVEit 0Day HTTP POST Request Detection
 status: Experimental 
-description: Detects MOVEit 0Day attack on GET request.
+description: Detects MOVEit 0Day attack on POST request.
 author: Bertuğ Erkaya @bertugerkaya
 references:
    - https://www.trustedsec.com/blog/critical-vulnerability-in-progress-moveit-transfer-technical-analysis-and-recommendations/
